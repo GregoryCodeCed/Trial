@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Favicon Generator</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .favicon-preview { width: 64px; height: 64px; border: 1px solid #ccc; margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <h2>Crypto Bridge Favicon Generator</h2>
+    
+    <canvas id="faviconCanvas" width="64" height="64" class="favicon-preview"></canvas>
+    
+    <br>
+    <button onclick="downloadFavicon()">Download as ICO</button>
+    
+    <script>
+        const canvas = document.getElementById('faviconCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        // Background circle
+        ctx.fillStyle = '#1a1a2e';
+        ctx.beginPath();
+        ctx.arc(32, 32, 30, 0, 2 * Math.PI);
+        ctx.fill();
+        
+        ctx.strokeStyle = '#16213e';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        
+        // Bridge curves
+        ctx.strokeStyle = '#00d4ff';
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.moveTo(10, 35);
+        ctx.quadraticCurveTo(32, 20, 54, 35);
+        ctx.stroke();
+        
+        ctx.strokeStyle = '#0099cc';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(10, 38);
+        ctx.quadraticCurveTo(32, 23, 54, 38);
+        ctx.stroke();
+        
+        // Connection nodes
+        ctx.fillStyle = '#00ff88';
+        ctx.beginPath();
+        ctx.arc(12, 36, 3, 0, 2 * Math.PI);
+        ctx.fill();
+        
+        ctx.beginPath();
+        ctx.arc(52, 36, 3, 0, 2 * Math.PI);
+        ctx.fill();
+        
+        ctx.fillStyle = '#ff6b35';
+        ctx.beginPath();
+        ctx.arc(32, 26, 3, 0, 2 * Math.PI);
+        ctx.fill();
+        
+        // Crypto symbol
+        ctx.strokeStyle = '#ffd700';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(28, 40);
+        ctx.lineTo(36, 40);
+        ctx.moveTo(32, 36);
+        ctx.lineTo(32, 44);
+        ctx.stroke();
+        
+        // Network lines
+        ctx.strokeStyle = '#00d4ff';
+        ctx.lineWidth = 1;
+        ctx.globalAlpha = 0.6;
+        ctx.beginPath();
+        ctx.moveTo(15, 39);
+        ctx.lineTo(29, 39);
+        ctx.moveTo(35, 39);
+        ctx.lineTo(49, 39);
+        ctx.stroke();
+        ctx.globalAlpha = 1;
+        
+        function downloadFavicon() {
+            const link = document.createElement('a');
+            link.download = 'favicon.png';
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+    </script>
+</body>
+</html>
