@@ -10,7 +10,7 @@ const Index = () => {
       <header className="bg-slate-800 py-6">
         <div className="container mx-auto px-4">
           <h1 className="text-3xl font-bold text-orange-400 text-center">
-            Crypto Fix Platform
+            CryptoBridge
           </h1>
         </div>
       </header>

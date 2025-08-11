@@ -1,0 +1,59 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#334155;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#475569;stop-opacity:1" />
+    </linearGradient>
+    
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  
+  <!-- Logo Container -->
+  <g transform="translate(400, 80)">
+    <!-- Bridge structure -->
+    <path d="M50 200 Q200 100 350 200" stroke="#fb923c" stroke-width="12" fill="none" filter="url(#glow)"/>
+    <path d="M50 220 Q200 120 350 220" stroke="#fb923c" stroke-width="8" fill="none" opacity="0.7"/>
+    
+    <!-- Support pillars -->
+    <rect x="60" y="200" width="16" height="80" fill="#fb923c" filter="url(#glow)"/>
+    <rect x="324" y="200" width="16" fill="#fb923c" filter="url(#glow)"/>
+    <rect x="188" y="100" width="24" height="180" fill="#fb923c" filter="url(#glow)"/>
+    
+    <!-- Connection nodes -->
+    <circle cx="80" cy="250" r="12" fill="#10b981" filter="url(#glow)"/>
+    <circle cx="200" cy="160" r="16" fill="#10b981" filter="url(#glow)"/>
+    <circle cx="320" cy="250" r="12" fill="#10b981" filter="url(#glow)"/>
+    
+    <!-- Crypto symbols -->
+    <text x="100" y="140" font-family="Arial" font-size="32" fill="#60a5fa" filter="url(#glow)">₿</text>
+    <text x="260" y="140" font-family="Arial" font-size="32" fill="#60a5fa" filter="url(#glow)">Ξ</text>
+    <text x="180" y="320" font-family="Arial" font-size="32" fill="#60a5fa" filter="url(#glow)">◊</text>
+    
+    <!-- Connection lines -->
+    <line x1="80" y1="250" x2="200" y2="160" stroke="#10b981" stroke-width="4" opacity="0.6"/>
+    <line x1="200" y1="160" x2="320" y2="250" stroke="#10b981" stroke-width="4" opacity="0.6"/>
+  </g>
+  
+  <!-- Title -->
+  <text x="600" y="420" font-family="Arial" font-size="96" font-weight="bold" fill="#fb923c" text-anchor="middle" filter="url(#glow)">CryptoBridge</text>
+  
+  <!-- Subtitle -->
+  <text x="600" y="480" font-family="Arial" font-size="36" fill="#e2e8f0" text-anchor="middle">Secure Wallet Connection Platform</text>
+  
+  <!-- Additional branding elements -->
+  <circle cx="100" cy="550" r="8" fill="#10b981" opacity="0.6"/>
+  <circle cx="1100" cy="550" r="8" fill="#10b981" opacity="0.6"/>
+  <circle cx="100" cy="80" r="8" fill="#fb923c" opacity="0.6"/>
+  <circle cx="1100" cy="80" r="8" fill="#fb923c" opacity="0.6"/>
+</svg>

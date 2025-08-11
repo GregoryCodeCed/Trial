@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptoBridge OG Image Generator</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #1e293b;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .og-image {
+            width: 1200px;
+            height: 630px;
+            background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #475569 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            transform: scale(0.5);
+            transform-origin: top left;
+            margin-bottom: 40px;
+        }
+        .logo {
+            width: 200px;
+            height: 200px;
+            margin-bottom: 40px;
+        }
+        .title {
+            font-size: 80px;
+            font-weight: bold;
+            color: #fb923c;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .subtitle {
+            font-size: 36px;
+            color: #e2e8f0;
+            text-align: center;
+            font-weight: 300;
+        }
+        .instructions {
+            background: #374151;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        button {
+            background: #fb923c;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px;
+        }
+        button:hover {
+            background: #ea7317;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CryptoBridge Social Media Image Generator</h1>
+        
+        <div class="og-image" id="ogImage">
+            <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <!-- Bridge structure -->
+                <path d="M10 60 Q50 30 90 60" stroke="#fb923c" stroke-width="3" fill="none"/>
+                <path d="M10 65 Q50 35 90 65" stroke="#fb923c" stroke-width="2" fill="none"/>
+                
+                <!-- Support pillars -->
+                <rect x="15" y="60" width="4" height="25" fill="#fb923c"/>
+                <rect x="81" y="60" width="4" height="25" fill="#fb923c"/>
+                <rect x="47" y="30" width="6" height="55" fill="#fb923c"/>
+                
+                <!-- Connection nodes -->
+                <circle cx="20" cy="75" r="3" fill="#10b981"/>
+                <circle cx="50" cy="50" r="4" fill="#10b981"/>
+                <circle cx="80" cy="75" r="3" fill="#10b981"/>
+                
+                <!-- Crypto symbols -->
+                <text x="25" y="45" font-family="Arial" font-size="8" fill="#60a5fa">₿</text>
+                <text x="65" y="45" font-family="Arial" font-size="8" fill="#60a5fa">Ξ</text>
+                <text x="45" y="90" font-family="Arial" font-size="8" fill="#60a5fa">◊</text>
+                
+                <!-- Connection lines -->
+                <line x1="20" y1="75" x2="50" y2="50" stroke="#10b981" stroke-width="1" opacity="0.6"/>
+                <line x1="50" y1="50" x2="80" y2="75" stroke="#10b981" stroke-width="1" opacity="0.6"/>
+            </svg>
+            
+            <div class="title">CryptoBridge</div>
+            <div class="subtitle">Secure Wallet Connection Platform</div>
+        </div>
+        
+        <div class="instructions">
+            <h3>Instructions:</h3>
+            <p>1. Right-click on the image above and select "Save image as..."</p>
+            <p>2. Save it as "og-image.png" in your public folder</p>
+            <p>3. Update your HTML meta tags to use this image</p>
+            <p>4. The image is 1200x630 pixels - perfect for social media sharing</p>
+            
+            <button onclick="downloadImage()">Download OG Image</button>
+        </div>
+    </div>
+
+    <script>
+        function downloadImage() {
+            const ogImage = document.getElementById('ogImage');
+            
+            // Create a canvas
+            const canvas = document.createElement('canvas');
+            canvas.width = 1200;
+            canvas.height = 630;
+            const ctx = canvas.getContext('2d');
+            
+            // Create gradient background
+            const gradient = ctx.createLinearGradient(0, 0, 1200, 630);
+            gradient.addColorStop(0, '#1e293b');
+            gradient.addColorStop(0.5, '#334155');
+            gradient.addColorStop(1, '#475569');
+            
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, 1200, 630);
+            
+            // Add logo (simplified)
+            ctx.strokeStyle = '#fb923c';
+            ctx.lineWidth = 8;
+            ctx.beginPath();
+            ctx.quadraticCurveTo(600, 200, 1000, 350);
+            ctx.moveTo(200, 350);
+            ctx.quadraticCurveTo(600, 200, 1000, 350);
+            ctx.stroke();
+            
+            // Add title
+            ctx.fillStyle = '#fb923c';
+            ctx.font = 'bold 80px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('CryptoBridge', 600, 450);
+            
+            // Add subtitle
+            ctx.fillStyle = '#e2e8f0';
+            ctx.font = '36px Arial';
+            ctx.fillText('Secure Wallet Connection Platform', 600, 520);
+            
+            // Download
+            const link = document.createElement('a');
+            link.download = 'og-image.png';
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+    </script>
+</body>
+</html>
