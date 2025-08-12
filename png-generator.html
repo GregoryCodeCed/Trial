@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create PNG OG Image</title>
+</head>
+<body>
+    <canvas id="canvas" width="1200" height="630" style="border: 1px solid #ccc;"></canvas>
+    <br><br>
+    <button onclick="downloadPNG()">Download as PNG</button>
+    
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        // Background gradient
+        const gradient = ctx.createLinearGradient(0, 0, 1200, 630);
+        gradient.addColorStop(0, '#1e293b');
+        gradient.addColorStop(0.5, '#334155');
+        gradient.addColorStop(1, '#475569');
+        
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, 1200, 630);
+        
+        // Bridge structure
+        ctx.strokeStyle = '#fb923c';
+        ctx.lineWidth = 12;
+        ctx.beginPath();
+        ctx.moveTo(450, 280);
+        ctx.quadraticCurveTo(600, 180, 750, 280);
+        ctx.stroke();
+        
+        ctx.lineWidth = 8;
+        ctx.globalAlpha = 0.7;
+        ctx.beginPath();
+        ctx.moveTo(450, 300);
+        ctx.quadraticCurveTo(600, 200, 750, 300);
+        ctx.stroke();
+        ctx.globalAlpha = 1;
+        
+        // Support pillars
+        ctx.fillStyle = '#fb923c';
+        ctx.fillRect(460, 280, 16, 80);
+        ctx.fillRect(724, 280, 16, 80);
+        ctx.fillRect(588, 180, 24, 180);
+        
+        // Connection nodes
+        ctx.fillStyle = '#10b981';
+        ctx.beginPath();
+        ctx.arc(480, 330, 12, 0, 2 * Math.PI);
+        ctx.fill();
+        
+        ctx.beginPath();
+        ctx.arc(600, 240, 16, 0, 2 * Math.PI);
+        ctx.fill();
+        
+        ctx.beginPath();
+        ctx.arc(720, 330, 12, 0, 2 * Math.PI);
+        ctx.fill();
+        
+        // Connection lines
+        ctx.strokeStyle = '#10b981';
+        ctx.lineWidth = 4;
+        ctx.globalAlpha = 0.6;
+        ctx.beginPath();
+        ctx.moveTo(480, 330);
+        ctx.lineTo(600, 240);
+        ctx.stroke();
+        
+        ctx.beginPath();
+        ctx.moveTo(600, 240);
+        ctx.lineTo(720, 330);
+        ctx.stroke();
+        ctx.globalAlpha = 1;
+        
+        // Title
+        ctx.fillStyle = '#fb923c';
+        ctx.font = 'bold 96px Arial';
+        ctx.textAlign = 'center';
+        ctx.fillText('CryptoBridge', 600, 450);
+        
+        // Subtitle
+        ctx.fillStyle = '#e2e8f0';
+        ctx.font = '36px Arial';
+        ctx.fillText('Secure Wallet Connection Platform', 600, 500);
+        
+        // Crypto symbols
+        ctx.fillStyle = '#60a5fa';
+        ctx.font = '32px Arial';
+        ctx.fillText('₿', 500, 220);
+        ctx.fillText('Ξ', 660, 220);
+        ctx.fillText('◊', 580, 400);
+        
+        function downloadPNG() {
+            const link = document.createElement('a');
+            link.download = 'og-image.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+    </script>
+</body>
+</html>
