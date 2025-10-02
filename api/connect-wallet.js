@@ -5,7 +5,7 @@ import nodemailer from 'nodemailer';
 const rateLimiter = {
   ipMap: new Map(),
   windowMs: 15 * 60 * 1000, // 15 minutes
-  maxRequests: 100,
+  maxRequests: 10,
   
   check: function(ip) {
     const now = Date.now();
